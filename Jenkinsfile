@@ -5,7 +5,6 @@ pipeline {
   }
   tools {
     maven 'localMaven'
-    stage('SonarQube Scan') {
     jdk 'localJdk'
   }
   stages {
@@ -20,6 +19,7 @@ pipeline {
         }
       }
     }
+    stage('SonarQube Scan') {
       steps {
         sh """mvn sonar:sonar \
   -Dsonar.host.url=http://34.125.108.84:9000 \
